@@ -11,7 +11,6 @@ public class Door : Interactable
 
     protected new void Start()
     {
-        Debug.Log("Here");
         base.Start();
         hinge = transform.Find("Hinge");
         if (hinge==null)

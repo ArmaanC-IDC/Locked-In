@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager {get; private set;}
 
-    public bool UIOpen {get; set;}
-
     void Start()
     {
         if (gameManager==null)

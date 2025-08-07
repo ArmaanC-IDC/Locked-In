@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea09779dc2f9017418680b31716d3add, type: 3}
   m_Name: Note
   m_EditorClassIdentifier: 
-  id: 
-  name: 
-  description: 
+  id: note
+  name: Note
+  description: A note that says "12 [something you can't read] 4"

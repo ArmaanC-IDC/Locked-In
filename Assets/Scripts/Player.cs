@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
-        if (GameManager.gameManager.UIOpen)
+        if (UIManager.uiManager.UIOpen)
         {
             return ;
         }
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 
     private void OnLookCanceled(InputAction.CallbackContext context)
     {
-        if (GameManager.gameManager.UIOpen)
+        if (UIManager.uiManager.UIOpen)
         {
             return ;
         }
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
-        if (GameManager.gameManager.UIOpen)
+        if (UIManager.uiManager.UIOpen)
         {
             return ;
         }

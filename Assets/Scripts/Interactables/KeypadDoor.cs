@@ -11,7 +11,6 @@ public class KeypadDoor : Door
 
     protected new void Start()
     {
-        Debug.Log("Here: KeypadDoor.cs");
         base.Start();
         isLocked = true;
     }
@@ -25,7 +24,7 @@ public class KeypadDoor : Door
 
             keypadUI = Instantiate(keypadUIPrefab, transform.position, transform.rotation);
             keypadUI.GetComponent<KeypadUI>().OpenKeypad(this);
-            GameManager.gameManager.UIOpen = true;
+            UIManager.uiManager.UIOpen = true;
         }else
         {
             base.OnInteract();
@@ -34,7 +33,7 @@ public class KeypadDoor : Door
 
      public bool TryUnlock(string enteredCode)
     {
-        GameManager.gameManager.UIOpen = false;
+        UIManager.uiManager.UIOpen = false;
         Destroy(keypadUI);
         if (enteredCode == correctCode)
         {
