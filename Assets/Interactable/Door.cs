@@ -9,7 +9,7 @@ public class Door : Interactable
     private Transform hinge;
     private bool doorOpen = false;
 
-    void Start()
+    protected new void Start()
     {
         Debug.Log("Here");
         base.Start();

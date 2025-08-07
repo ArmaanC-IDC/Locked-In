@@ -8,7 +8,7 @@ public class Pickable : Interactable
     public Item item;
     public InventoryManager inventory;
 
-    void Start()
+    protected new void Start()
     {
         base.Start();
         

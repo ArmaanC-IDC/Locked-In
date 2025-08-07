@@ -9,8 +9,9 @@ public class KeypadDoor : Door
     private GameObject keypadUI;
     private bool isLocked = true;
 
-    void Start()
+    protected new void Start()
     {
+        Debug.Log("Here: KeypadDoor.cs");
         base.Start();
         isLocked = true;
     }
@@ -24,6 +25,7 @@ public class KeypadDoor : Door
 
             keypadUI = Instantiate(keypadUIPrefab, transform.position, transform.rotation);
             keypadUI.GetComponent<KeypadUI>().OpenKeypad(this);
+            GameManager.gameManager.UIOpen = true;
         }else
         {
             base.OnInteract();
@@ -32,11 +34,11 @@ public class KeypadDoor : Door
 
      public bool TryUnlock(string enteredCode)
     {
+        GameManager.gameManager.UIOpen = false;
+        Destroy(keypadUI);
         if (enteredCode == correctCode)
         {
             isLocked = false;
-            Debug.Log("Door unlocked!");
-            Destroy(keypadUI);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             base.OnInteract();

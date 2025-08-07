@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody rb;
     private float verticalLookRotation = 0;
-    private Transform camera;
+    private new Transform camera;
     private Vector2 lookInputValue = Vector2.zero;
     private Transform interactIndicator;
     private GameObject currentHoverObject; 
@@ -79,10 +79,6 @@ public class Player : MonoBehaviour
 
     private void HandleCameraLooking()
     {
-        // if (EventSystem.current.IsPointerOverGameObject())
-        // {
-        //     return ;
-        // }
         #region horizontal looking
         float mouseX = lookInputValue.x * horizontalMouseSensitivity;
         transform.rotation = transform.rotation * Quaternion.Euler(0, mouseX, 0);
@@ -99,6 +95,11 @@ public class Player : MonoBehaviour
 
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
+        if (GameManager.gameManager.UIOpen)
+        {
+            return ;
+        }
+
         lookInputValue = context.ReadValue<Vector2>();
 
         HandleInteraction();
@@ -106,6 +107,10 @@ public class Player : MonoBehaviour
 
     private void OnLookCanceled(InputAction.CallbackContext context)
     {
+        if (GameManager.gameManager.UIOpen)
+        {
+            return ;
+        }
         lookInputValue = Vector2.zero;
     }
     #endregion
@@ -149,6 +154,10 @@ public class Player : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
+        if (GameManager.gameManager.UIOpen)
+        {
+            return ;
+        }
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, interactMaxDistance))
         {

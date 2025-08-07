@@ -135,7 +135,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   verticalMouseSensitivity: 3
-  horizontalMouseSensitivity: 5
+  horizontalMouseSensitivity: 6
   interactMaxDistance: 50
   movementControls:
     m_Name: Movement Controls
