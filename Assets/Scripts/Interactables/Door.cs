@@ -19,7 +19,7 @@ public class Door : Interactable
         }
     }
 
-    override public void OnInteract()
+    override public void OnInteract(Item item) //KeypadDoor.cs calls this with null as item bcs doesn't use item now
     {
         if (doorOpen)
         {

@@ -22,14 +22,14 @@ public class Player : MonoBehaviour
     private Transform interactIndicator;
     private GameObject currentHoverObject; 
 
+    private InventoryManager inventory;
+
     #region enable/disable InputActions
     private void OnEnable()
     {
         movementControls.Enable();
 
         lookControls.Enable();
-        lookControls.performed += OnLookPerformed;
-        lookControls.canceled += OnLookCanceled;
 
         interactControls.Enable();
         interactControls.performed += OnInteract;
@@ -39,8 +39,6 @@ public class Player : MonoBehaviour
     {
         movementControls.Disable();
 
-        lookControls.performed -= OnLookPerformed;
-        lookControls.canceled -= OnLookCanceled;
         lookControls.Disable();
 
         interactControls.performed -= OnInteract;
@@ -54,15 +52,22 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         camera = transform.Find("Camera");
         interactIndicator = transform.Find("InteractIndicator");
+        inventory = gameObject.GetComponent<InventoryManager>();
+    }
+
+    void Update()
+    {
+        if (!UIManager.uiManager.UIOpen)
+        {
+            lookInputValue = lookControls.ReadValue<Vector2>();
+            HandleCameraLooking();
+            HandleInteraction();
+        }
     }
 
     void FixedUpdate()
-    {
-        HandleCameraLooking();
-        
+    {        
         HandlePlayerMovement();
-
-        //interaction based on events
     }
 
     #region handle player movement
@@ -93,26 +98,6 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnLookPerformed(InputAction.CallbackContext context)
-    {
-        if (UIManager.uiManager.UIOpen)
-        {
-            return ;
-        }
-
-        lookInputValue = context.ReadValue<Vector2>();
-
-        HandleInteraction();
-    }
-
-    private void OnLookCanceled(InputAction.CallbackContext context)
-    {
-        if (UIManager.uiManager.UIOpen)
-        {
-            return ;
-        }
-        lookInputValue = Vector2.zero;
-    }
     #endregion
 
     #region handle interaction
@@ -152,7 +137,7 @@ public class Player : MonoBehaviour
     }
     
 
-    private void OnInteract(InputAction.CallbackContext context)
+    private void OnInteract(InputAction.CallbackContext context) //called when interact key is clicked
     {
         if (UIManager.uiManager.UIOpen)
         {
@@ -165,9 +150,9 @@ public class Player : MonoBehaviour
             Rigidbody rigidbody = collider.attachedRigidbody;
             if (rigidbody != null)
             {
-                rigidbody.gameObject.GetComponent<Interactable>()?.OnInteract();
+                rigidbody.gameObject.GetComponent<Interactable>()?.OnInteract(inventory.GetActiveItem());
             }else{
-                collider.gameObject.GetComponent<Interactable>()?.OnInteract();
+                collider.gameObject.GetComponent<Interactable>()?.OnInteract(inventory.GetActiveItem());
             }
         }
     }

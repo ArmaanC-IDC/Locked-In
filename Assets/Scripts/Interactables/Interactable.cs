@@ -67,7 +67,7 @@ public class Interactable : MonoBehaviour
 
     #endregion
 
-    public virtual void OnInteract()
+    public virtual void OnInteract(Item item)
     {
         Debug.Log("UNIMPLEMENTED INTERACTION");
     }

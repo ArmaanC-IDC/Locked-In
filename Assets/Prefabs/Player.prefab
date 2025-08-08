@@ -135,7 +135,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   verticalMouseSensitivity: 3
-  horizontalMouseSensitivity: 6
+  horizontalMouseSensitivity: 1
   interactMaxDistance: 50
   movementControls:
     m_Name: Movement Controls
@@ -264,6 +264,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e508715d34e044a88322cd0046cb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swapControls:
+    m_Name: Swap Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eeb191f5-9628-414e-9e31-a49b001a02b5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  numInventorySlots: 10
 --- !u!54 &8014747306339292819
 Rigidbody:
   m_ObjectHideFlags: 0

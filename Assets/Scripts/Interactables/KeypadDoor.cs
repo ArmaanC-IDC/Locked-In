@@ -15,7 +15,7 @@ public class KeypadDoor : Door
         isLocked = true;
     }
 
-    public override void OnInteract()
+    public override void OnInteract(Item item)
     {
         if (isLocked)
         {
@@ -27,7 +27,7 @@ public class KeypadDoor : Door
             UIManager.uiManager.UIOpen = true;
         }else
         {
-            base.OnInteract();
+            base.OnInteract(item);
         }
     }
 
@@ -40,7 +40,7 @@ public class KeypadDoor : Door
             isLocked = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            base.OnInteract();
+            base.OnInteract(null);
             return true;
         }
         else

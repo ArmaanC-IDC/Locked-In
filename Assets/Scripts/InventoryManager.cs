@@ -41,6 +41,9 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
+        if (item==null){
+            Debug.LogError("Null item added to inventory");
+        }
         inventory.Add(item);
         uiManager.UpdateInventoryDisplay();
     }
@@ -70,8 +73,10 @@ public class InventoryManager : MonoBehaviour
         return inventory;
     }
 
-    public Item GetActiveInventoryItem()
+    public Item GetActiveItem()
     {
+        if (activeInventorySlot >= inventory.Count)
+            return null;
         return inventory[activeInventorySlot];
     }
 }
