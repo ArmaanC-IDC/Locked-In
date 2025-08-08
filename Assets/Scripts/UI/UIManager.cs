@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
         if (uiManager==null)
         {
             uiManager = this;
-            Debug.Log("UI manager created");
         }else
         {
             Debug.LogError("Cannot have more than one UI Manager");
@@ -43,11 +42,14 @@ public class UIManager : MonoBehaviour
 
     public void UpdateInventoryDisplay()
     {
+        List<Item> inventoryItems = inventory.GetInventory();
         //update the active slot
         for (int i = 0; i < hotbar.childCount; i++)
         {
-            Image currentChild = hotbar.GetChild(i).gameObject.GetComponent<Image>();
-            Color currentColor = currentChild.color;
+            Image currentSlot = hotbar.GetChild(i).gameObject.GetComponent<Image>();
+
+            #region make active slot have black outline
+            Color currentColor = currentSlot.color;
             if (i!=inventory.activeInventorySlot)
             {
                 currentColor.a = 0;
@@ -55,7 +57,14 @@ public class UIManager : MonoBehaviour
             {
                 currentColor.a = 1;
             }
-           currentChild.color = currentColor;
+           currentSlot.color = currentColor;
+           #endregion
+        
+            if (i < inventoryItems.Count && inventoryItems[i]!=null)
+            {
+                Image iconPanel = currentSlot.gameObject.transform.GetChild(1).GetComponent<Image>();
+                iconPanel.sprite = inventoryItems[i]?.inventoryIcon;
+            }
         }
     }
 }

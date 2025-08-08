@@ -30,19 +30,19 @@ public class InventoryManager : MonoBehaviour
                 _activeInventorySlot = value;
             }
             if (uiManager!=null) uiManager.UpdateInventoryDisplay();
-            else Debug.Log("No UI manager found");
         }
-    }
-
-    public void Add(Item item)
-    {
-        inventory.Add(item);
     }
 
     void Start()
     {
         activeInventorySlot = 0;
         uiManager = UIManager.uiManager;
+    }
+
+    public void Add(Item item)
+    {
+        inventory.Add(item);
+        uiManager.UpdateInventoryDisplay();
     }
 
     #region enable/disable controls
@@ -59,18 +59,19 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
-    void Update()
-    {
-        float input = swapControls.ReadValue<float>();
-        if (input!=0f)
-        {
-            Debug.Log(swapControls.ReadValue<float>());
-        }
-    }
-
     private void OnControlSwap(InputAction.CallbackContext context)
     {
         float inputVal = context.ReadValue<float>();
         activeInventorySlot += (int)(Mathf.Clamp(inputVal, -1f, 1f) * -1f);
+    }
+
+    public List<Item> GetInventory()
+    {
+        return inventory;
+    }
+
+    public Item GetActiveInventoryItem()
+    {
+        return inventory[activeInventorySlot];
     }
 }
