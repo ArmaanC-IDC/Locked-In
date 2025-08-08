@@ -76,7 +76,9 @@ public class InventoryManager : MonoBehaviour
     public Item GetActiveItem()
     {
         if (activeInventorySlot >= inventory.Count)
+        {
             return null;
+        }
         return inventory[activeInventorySlot];
     }
 }
