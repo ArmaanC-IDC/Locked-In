@@ -52,27 +52,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyDoor Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3871608392976759190, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
+      propertyPath: m_Name
+      value: KeyDoor
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5713935269924742703, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
+    - {fileID: 1892558306692280504, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2802025400654232351, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3871608392976759190, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4531219573034091969}
+      addedObject: {fileID: 6866785158131595526}
   m_SourcePrefab: {fileID: 100100000, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
---- !u!1 &852027660029975263 stripped
+--- !u!1 &1768646607205947478 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2802025400654232351, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3871608392976759190, guid: 680d6d03eb410d74c818c3912a7bc150, type: 3}
   m_PrefabInstance: {fileID: 3256605994967966144}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4531219573034091969
+--- !u!114 &6866785158131595526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852027660029975263}
+  m_GameObject: {fileID: 1768646607205947478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b34f740e0aafd7429266d507ea0cd29, type: 3}

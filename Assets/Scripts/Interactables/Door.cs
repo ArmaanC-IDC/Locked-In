@@ -23,11 +23,11 @@ public class Door : Interactable
     {
         if (doorOpen)
         {
-            hinge.rotation = hinge.rotation * Quaternion.Euler(0, 90 * -1 * openDir, 0);
+            hinge.Rotate(0, 90 * -1 * openDir, 0, Space.World);
             doorOpen = false;
         }else 
         {
-            hinge.rotation = hinge.rotation * Quaternion.Euler(0, 90 * openDir, 0);
+            hinge.Rotate(0, 90 * openDir, 0, Space.World);
             doorOpen = true;
         }
     }

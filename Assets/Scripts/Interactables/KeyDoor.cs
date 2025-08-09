@@ -27,6 +27,7 @@ public class KeyDoor : Door
                 if (item.codes.Contains(code))
                 {
                     base.OnInteract(item);
+                    isLocked = false;
                     return ;
                 }
             }
