@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     private Renderer objectRenderer;
     private Material originalMaterial;
     [SerializeField] private Material glowMaterial;
-    private GameObject mesh;
+    protected GameObject mesh; //used by drawer (maybe others)
     private bool emissionEnabled = false;
 
     protected void Start()

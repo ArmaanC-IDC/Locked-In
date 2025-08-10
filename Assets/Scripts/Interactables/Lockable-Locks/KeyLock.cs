@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyDoor : Door
+public class KeyLock : Lock
 {
-    [SerializeField] private List<string> codes = new List<string>();
-    private bool isLocked = true;
-
-    protected new void Start()
+    public override void TryUnlock(Item item)
     {
-        base.Start();
-        isLocked = true;
-    }
-
-    public override void OnInteract(Item item)
-    {
-        if (isLocked)
+        if (lockable.locked)
         {
             if (item?.codes==null)
             {
@@ -26,15 +17,16 @@ public class KeyDoor : Door
             {
                 if (item.codes.Contains(code))
                 {
-                    base.OnInteract(item);
-                    isLocked = false;
+                    lockable.locked = false;
+                    lockable.OnInteract(item);
                     return ;
                 }
             }
             Debug.Log("That is the wrong key.");
         }else
         {
-            base.OnInteract(item);
+            lockable.locked = false;
+            lockable.OnInteract(item);
         }
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class KeypadUI : MonoBehaviour
+public class NumberLockUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currentCodeText;
     private string currentEnteredCode = "";
-    private KeypadDoor door;
+    private NumberLock numberLock;
 
-    public void OpenKeypad(KeypadDoor d)
+    public void OpenKeypad(NumberLock l)
     {
-        door = d;
+        numberLock = l;
     }
 
     public void OnButtonPress(int number){
@@ -21,6 +21,6 @@ public class KeypadUI : MonoBehaviour
     }
 
     public void OnSubmitButtonPress(){
-        door.TryUnlock(currentEnteredCode);
+        numberLock.SubmitAttempt(currentEnteredCode);
     }
 }
