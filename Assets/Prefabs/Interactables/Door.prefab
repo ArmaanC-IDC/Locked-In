@@ -58,9 +58,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &7664198798423134128
 MonoBehaviour:
@@ -75,6 +75,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowMaterial: {fileID: 0}
+  locked: 0
+  open: 0
+  _lock: {fileID: 0}
   openDir: 1
 --- !u!1 &4444487189942857244
 GameObject:
@@ -87,7 +90,7 @@ GameObject:
   - component: {fileID: 1053190785556897891}
   - component: {fileID: 712910453501044727}
   - component: {fileID: 3684642998874910487}
-  - component: {fileID: 7701490905432666565}
+  - component: {fileID: 4637466170120855813}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -161,7 +164,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7701490905432666565
+--- !u!65 &4637466170120855813
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,8 +183,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.27883512, y: 1.989891, z: 3.0127454}
-  m_Center: {x: 0.065951616, y: -0.003897667, z: 1.487995}
+  m_Size: {x: 0.27883512, y: 1.7014564, z: 3.7632887}
+  m_Center: {x: 0.06595162, y: 0.0000000018626451, z: 1.8944486}
 --- !u!1 &7481926561981200248
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 81a5d41d334bf664994ecd867f6834ae, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 81a5d41d334bf664994ecd867f6834ae, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4028032207453201572, guid: 81a5d41d334bf664994ecd867f6834ae, type: 3}
       propertyPath: m_LocalPosition.y

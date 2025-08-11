@@ -22,7 +22,6 @@ public class Drawer : Lockable
             return ;
         }
 
-        Debug.Log("Here");
         if (open)
         {
             open = false;
