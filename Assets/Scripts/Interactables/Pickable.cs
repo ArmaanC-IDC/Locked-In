@@ -20,7 +20,6 @@ public class Pickable : Interactable
             Destroy(this);
         }
 
-        item = gameObject.GetComponent<Item>();
         if (item==null){
             Debug.LogError("No item data attached to " + gameObject.name);
         }

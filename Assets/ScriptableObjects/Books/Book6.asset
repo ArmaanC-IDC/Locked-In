@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeaedd9aa36281f40a7c190b04aabd1c, type: 3}
   m_Name: Book6
   m_EditorClassIdentifier: 
-  title: 
-  author: 
-  content: 
+  title: The Lord's Peril
+  author: Annora Veight
+  content: A whimsical yet tragic tale of a Lord who tried to build a timepiece that
+    could reverse the years. In the end, his obsession stopped time for him alone,
+    while the rest of the world moved on without him.

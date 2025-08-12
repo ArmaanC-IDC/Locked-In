@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeaedd9aa36281f40a7c190b04aabd1c, type: 3}
   m_Name: Book2
   m_EditorClassIdentifier: 
-  title: 
-  author: 
-  content: 
+  title: The King's Apprentice
+  author: Henrik Voll
+  content: "An inspiring story about a young apprentice who learns the ancient art
+    of ruling. Each chapter is shaped around a lesson, ending with the moral: \u201CClarity
+    comes to those who endure the heat.\u201D"

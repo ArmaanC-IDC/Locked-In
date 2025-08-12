@@ -8,7 +8,8 @@ public enum ItemType
     Key
 }
 
-public class Item : MonoBehaviour {
+[CreateAssetMenu(fileName = "Item", menuName = "EscapeRoom/Item", order = 0)]
+public class Item : ScriptableObject {
     public ItemType type;
     public string id;
     public string name;

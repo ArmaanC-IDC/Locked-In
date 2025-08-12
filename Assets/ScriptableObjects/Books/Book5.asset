@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeaedd9aa36281f40a7c190b04aabd1c, type: 3}
   m_Name: Book5
   m_EditorClassIdentifier: 
-  title: 
-  author: 
-  content: 
+  title: Myths of the Western Isles
+  author: Dr. Keiran Morrel
+  content: "An academic\u2019s exploration of sea-serpent legends, selkies, and ancient
+    stone circles. The text is dense and footnoted, clearly intended for a scholarly
+    audience."

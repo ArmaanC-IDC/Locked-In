@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private InputAction swapControls;
+    [SerializeField] private InputAction inspectItemControls;
+    [SerializeField] private GameObject showTextUIPrefab;
 
     private List<Item> inventory = new List<Item>();
     private UIManager uiManager;
@@ -53,12 +57,18 @@ public class InventoryManager : MonoBehaviour
     {
         swapControls.Enable();
         swapControls.performed += OnControlSwap;
+
+        inspectItemControls.Enable();
+        inspectItemControls.performed += OnInspect;
     }
     
     private void OnDisable()
     {
         swapControls.performed -= OnControlSwap;
         swapControls.Disable();
+
+        inspectItemControls.performed -= OnInspect;
+        inspectItemControls.Disable();
     }
     #endregion
 
@@ -80,5 +90,15 @@ public class InventoryManager : MonoBehaviour
             return null;
         }
         return inventory[activeInventorySlot];
+    }
+
+    private void OnInspect(InputAction.CallbackContext context)
+    {
+        GameObject showTextUI = Instantiate(showTextUIPrefab, transform.position, transform.rotation);
+        showTextUI.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = GetActiveItem().description;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        UIManager.uiManager.UIOpen = true;
     }
 }

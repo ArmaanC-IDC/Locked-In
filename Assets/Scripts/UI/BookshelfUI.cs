@@ -33,7 +33,8 @@ public class BookshelfUI : MonoBehaviour
     public void OpenBook(int num)
     {
         GameObject readBookUI = Instantiate(readBookUIPrefab, transform.position, transform.rotation);
-        readBookUI.GetComponent<ReadBookUI>().Init(books[num]);
+        readBookUI.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = books[num].content;
+        readBookUI.GetComponent<BackButton>().exitUI = false;
     }
 
     public void CloseMenu()

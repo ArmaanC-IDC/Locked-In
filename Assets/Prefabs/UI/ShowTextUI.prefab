@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3043584714380091623}
   - component: {fileID: 7186538992434258299}
   m_Layer: 5
-  m_Name: ReadBookUI
+  m_Name: ShowTextUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,8 +524,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7186538992434258299}
-        m_TargetAssemblyTypeName: ReadBookUI, Assembly-CSharp
-        m_MethodName: BackButton
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: OnBackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

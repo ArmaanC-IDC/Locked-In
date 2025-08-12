@@ -271,8 +271,50 @@ MonoBehaviour:
     m_Id: eeb191f5-9628-414e-9e31-a49b001a02b5
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: Hotbar Controls
+      m_Id: 01857f78-231f-43cb-8bad-21b8859ad54a
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swap Controls
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 838d1ca4-9457-46cd-87d7-4b945d08b0e6
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swap Controls
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 6c6ee5c0-860a-4dec-b781-fd89f3b5f6fc
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Swap Controls
+      m_Flags: 8
     m_Flags: 0
+  inspectItemControls:
+    m_Name: Inspect Item Controls
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d9a11430-0d7b-4145-aeb1-d69b5275d3e1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5261c4c8-a0cb-4786-8ca4-42607c1b4ca4
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Inspect Item Controls
+      m_Flags: 0
+    m_Flags: 0
+  showTextUIPrefab: {fileID: 5314893592883097661, guid: 07556ee90483a28419f44e00c34a32ac, type: 3}
   numInventorySlots: 10
 --- !u!54 &8014747306339292819
 Rigidbody:
@@ -328,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 1784748273743138162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -0.04}
+  m_LocalPosition: {x: 0, y: 2.2, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -421,8 +463,8 @@ Transform:
   m_GameObject: {fileID: 5624002892068531879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7686200851574877463}
