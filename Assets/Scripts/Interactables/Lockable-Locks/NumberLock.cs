@@ -20,7 +20,10 @@ public class NumberLock : Lock
     public void SubmitAttempt(string enteredCode)
     {
         UIManager.uiManager.UIOpen = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Destroy(numberLockUI);
+        
         if (codes.Contains(enteredCode))
         {
             lockable.locked = false;

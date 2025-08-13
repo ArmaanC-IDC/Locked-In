@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 188891d37ac307c45bb50b40c89b23f3
+guid: b786dc176830b3640a52314e918853ae
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Fredoka
+  - Monoton
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
