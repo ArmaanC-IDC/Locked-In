@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-    public List<string> codes = new List<string>();
+    public string code = "";
     public Lockable lockable;
 
     protected virtual void Start()

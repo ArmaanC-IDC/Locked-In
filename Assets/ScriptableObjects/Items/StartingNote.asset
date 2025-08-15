@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   id: startingNote
   name: Note
-  description: "The account of an inspector\u2019s observations, preserved in a well-worn
-    journal, hold the combination."
+  description: "I\u2019m always running but have no legs.\r\nI count your moments
+    but have no mouth to speak.\r\n - Ellaria Venn, 1882"
   inventoryIcon: {fileID: 21300000, guid: aaa88e386d9a22c4b8b2651681b6b4f7, type: 3}
   codes: []

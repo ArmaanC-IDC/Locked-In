@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adf043289b83c8418fc00c74c2b3979, type: 3}
+  m_Name: PrefabRegistry
+  m_EditorClassIdentifier: 
+  prefabNames:
+  - bookshelf
+  - chair
+  - desk
+  - drawers
+  - table
+  - key
+  - note
+  - candle
+  - torch
+  - ceilingtile
+  - door
+  - floortile
+  - keydoor
+  - numberlockdoor
+  - wall
+  prefabs:
+  - {fileID: 6124581762607875667, guid: a9f4f6003effaad459a74a793fc56538, type: 3}
+  - {fileID: 2086259827736350908, guid: f507982c48609994baa629ec71945a10, type: 3}
+  - {fileID: 849630927664243314, guid: 1a2e7492a34bfa54ca99b136474d9afa, type: 3}
+  - {fileID: 3688775021633470254, guid: 20fca8cedc2f9a24ea8786d7c000f64c, type: 3}
+  - {fileID: 4853513873015689731, guid: 83cb318f95f87af4cafb674c25b96915, type: 3}
+  - {fileID: 2364472111161374899, guid: 2cd5e6a9e2057844ab8e5791fdf40303, type: 3}
+  - {fileID: 5906098739319782503, guid: 4f3e3b0e7bec90a4e8cf2d9cc8ff72b2, type: 3}
+  - {fileID: 3598498256031169547, guid: 3cc67cabcb7527f4eb68ff48e4076b32, type: 3}
+  - {fileID: 4843875194463113823, guid: d56b644c71cd17341af0b83da3efbb6c, type: 3}
+  - {fileID: 8349386445612406258, guid: 345d1b21bdcbacd499c6f61a55c380ef, type: 3}
+  - {fileID: 1768646607205947478, guid: 5b4716e53a57b8348a2a7e2eb7c8a0d9, type: 3}
+  - {fileID: 8503511692878879997, guid: 6f599d4473fef6d4e9b1009d6f42a0be, type: 3}
+  - {fileID: 1178215767152625528, guid: 56d3450f08e2bf34695a0160fe06ec1c, type: 3}
+  - {fileID: 343659042626385695, guid: 400522e74fc4875489cf05346a301846, type: 3}
+  - {fileID: 3801585084638580127, guid: a58b28faa27057445a33309634f46fe6, type: 3}
+  locations:
+  - furniture
+  - furniture
+  - furniture
+  - furniture
+  - furniture
+  - items
+  - items
+  - lighting
+  - lighting
+  - structure
+  - structure
+  - structure
+  - structure
+  - structure
+  - structure

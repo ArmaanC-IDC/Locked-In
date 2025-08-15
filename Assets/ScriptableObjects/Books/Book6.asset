@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: The Lord's Peril
   author: Annora Veight
-  content: A whimsical yet tragic tale of a Lord who tried to build a timepiece that
-    could reverse the years. In the end, his obsession stopped time for him alone,
-    while the rest of the world moved on without him.
+  content: "A whimsical yet tragic tale of a Lord who tried to build a timepiece
+    that could reverse the years. In the end, his obsession stopped time for him
+    alone, while the rest of the world moved on without him.\n - Annora Veight, 1892"

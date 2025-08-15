@@ -16,5 +16,5 @@ public class Item : ScriptableObject {
     [TextArea] public string description;
     public Sprite inventoryIcon;
 
-    public List<string> codes; //leave null for non-keys
+    public string code; //leave null for non-keys
 }

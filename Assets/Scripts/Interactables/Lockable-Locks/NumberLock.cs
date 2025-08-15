@@ -23,8 +23,7 @@ public class NumberLock : Lock
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Destroy(numberLockUI);
-        
-        if (codes.Contains(enteredCode))
+        if (code == enteredCode)
         {
             lockable.locked = false;
             Cursor.lockState = CursorLockMode.Locked;

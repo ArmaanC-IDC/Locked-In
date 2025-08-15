@@ -95,7 +95,7 @@ public class InventoryManager : MonoBehaviour
     private void OnInspect(InputAction.CallbackContext context)
     {
         GameObject showTextUI = Instantiate(showTextUIPrefab, transform.position, transform.rotation);
-        showTextUI.transform.GetChild(1).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = GetActiveItem().description;
+        showTextUI.transform.GetChild(2).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = GetActiveItem().description;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

@@ -8,19 +8,16 @@ public class KeyLock : Lock
     {
         if (lockable.locked)
         {
-            if (item?.codes==null)
+            if (item?.code==null)
             {
                 Debug.Log("Key must be used.");
                 return ;
             }
-            foreach (string code in codes)
+            if (code==item.code)
             {
-                if (item.codes.Contains(code))
-                {
-                    lockable.locked = false;
-                    lockable.OnInteract(item);
-                    return ;
-                }
+                lockable.locked = false;
+                lockable.OnInteract(item);
+                return ;
             }
             Debug.Log("That is the wrong key.");
         }else

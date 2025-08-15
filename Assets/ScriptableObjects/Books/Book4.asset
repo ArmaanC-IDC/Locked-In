@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeaedd9aa36281f40a7c190b04aabd1c, type: 3}
   m_Name: Book4
   m_EditorClassIdentifier: 
-  title: The Journal of Inspector Vance
-  author: Miles T. Corren
-  content: "Case 0421 \u2014 It began with a locked chest and no key in sight.\nCase
-    1733 \u2014 The baker swore the lock\u2019s tumblers were worn to dust.\nCase
-    4709 \u2014 Suspect left a strange note: 'Only the first will open the way.'\nCase
-    7-1-4-2 \u2014 The puzzle in the old study still eludes me. Four drawers, each
-    with a number hidden in plain view..."
+  title: Shadows Beneath the Gears
+  author: Ellaria Venn
+  content: "In a city run on clockwork laws, one gear grinds to a halt. A mechanic
+    with a criminal past must restart the machine before the whole district falls
+    into chaos.\n - Ellarina Venn, 1846"
