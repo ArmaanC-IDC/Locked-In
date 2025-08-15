@@ -33,13 +33,6 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        //mouse movement
-        Vector2 lookDelta = lookAction.ReadValue<Vector2>();
-        rotationX += lookDelta.x * mouseSensitivity;
-        rotationY -= lookDelta.y * mouseSensitivity;
-        rotationY = Mathf.Clamp(rotationY, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(rotationY, rotationX, 0);
-
         // x=left/right, y=forward/back
         Vector2 movement = moveAction.ReadValue<Vector2>();
         float upDown = upDownAction.ReadValue<float>();
@@ -53,6 +46,13 @@ public class CameraMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            //mouse movement
+            Vector2 lookDelta = lookAction.ReadValue<Vector2>();
+            rotationX += lookDelta.x * mouseSensitivity;
+            rotationY -= lookDelta.y * mouseSensitivity;
+            rotationY = Mathf.Clamp(rotationY, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(rotationY, rotationX, 0);
         }else
         {
             Cursor.lockState = CursorLockMode.None;

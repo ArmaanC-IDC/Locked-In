@@ -12,7 +12,7 @@ public enum ItemType
 public class Item : ScriptableObject {
     public ItemType type;
     public string id;
-    public string name;
+    public new string name;
     [TextArea] public string description;
     public Sprite inventoryIcon;
 

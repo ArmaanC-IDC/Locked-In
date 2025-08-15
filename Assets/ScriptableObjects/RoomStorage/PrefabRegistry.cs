@@ -8,4 +8,5 @@ public class PrefabRegistry : ScriptableObject
     public List<string> prefabNames = new List<string>();
     public List<GameObject> prefabs = new List<GameObject>();
     public List<string> locations = new List<string>();
+    public List<string> displayNames = new List<string>();
 }

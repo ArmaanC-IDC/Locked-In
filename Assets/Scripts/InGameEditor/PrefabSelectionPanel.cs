@@ -20,8 +20,10 @@ public class PrefabSelectionPanel : MonoBehaviour
 
     private Dictionary<string, List<string>> organizedPrefabs = new Dictionary<string, List<string>>();
     private List<string> headings;
+    private List<string> prefabs;
 
     private int selectedHeading = 0;
+    private int selectedPrefab = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,11 @@ public class PrefabSelectionPanel : MonoBehaviour
 
     void PopulateHeadings()
     {
+        while (headingParent.childCount > 0)
+        {
+            DestroyImmediate(headingParent.GetChild(0).gameObject);
+        }
+
         for (int i = 0; i<headings.Count; i++)
         {
             GameObject header = Instantiate(sectionHeader, headingParent);
@@ -62,12 +69,20 @@ public class PrefabSelectionPanel : MonoBehaviour
                 newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 0);
             }
             header.GetComponent<Image>().color = newColor;
+
+            int index = i;
+            header.GetComponent<Button>().onClick.AddListener(() => SelectHeading(index));
         }
     }
 
     void PopulatePrefabs()
     {
-        List<string>prefabs = organizedPrefabs[headings[selectedHeading]];
+        while (slotsParent.childCount > 0)
+        {
+            DestroyImmediate(slotsParent.GetChild(0).gameObject);
+        }
+
+        prefabs = organizedPrefabs[headings[selectedHeading]];
         for (int i = 0; i<prefabs.Count; i++)
         {
             GameObject slot = Instantiate(prefabSlot);
@@ -75,7 +90,8 @@ public class PrefabSelectionPanel : MonoBehaviour
             slot.GetComponent<RectTransform>().anchoredPosition = new Vector2(-360 + 60*i, 0);
             slot.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 
-            slot.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = prefabs[i];
+            int index = prefabRegistry.prefabNames.IndexOf(prefabs[i]);
+            slot.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = prefabRegistry.displayNames[index];
 
             //load the image
             byte[] bytes = File.ReadAllBytes(iconFolderPath + "/" + prefabs[i].ToLower() + ".png");
@@ -86,15 +102,46 @@ public class PrefabSelectionPanel : MonoBehaviour
                 new Rect(0f, 0f, texture.width, texture.height), 
                 new Vector2(0.5f, 0.5f)
             );
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+            slot.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = sprite;
+
+            Color currentColor = slot.GetComponent<Image>().color;
+            Color newColor;
+            if (i==selectedPrefab)
+            {
+                newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1f);
+            }else
+            {
+                newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 0f);
+            }
+            slot.GetComponent<Image>().color = newColor;
+
+            int _index = i;
+            slot.GetComponent<Button>().onClick.AddListener(() => SelectPrefab(_index));
         }
     }
 
     void SelectHeading(int num)
     {
+        selectedPrefab = -1;
+        Debug.Log(num + " : " + headings.Count);
         selectedHeading = num;
 
         PopulateHeadings();
         PopulatePrefabs();
+    }
+
+    void SelectPrefab(int num)
+    {
+        selectedPrefab = num;
+        PopulatePrefabs();
+    }
+
+    public string GetSelectedPrefabName()
+    {
+        if (selectedPrefab==-1)
+        {
+            return "";
+        }
+        return prefabs[selectedPrefab];
     }
 }

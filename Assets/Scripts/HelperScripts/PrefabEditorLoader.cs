@@ -28,6 +28,7 @@ public class PrefabEditorLoader : MonoBehaviour
             prefabRegistry.prefabNames = new List<string>();
             prefabRegistry.prefabs = new List<GameObject>();
             prefabRegistry.locations = new List<string>();
+            prefabRegistry.displayNames = new List<string>();
 
             // Find all prefab GUIDs in the folder
             string[] guids = AssetDatabase.FindAssets("t:Prefab", new string[] { prefabFolder });
@@ -61,6 +62,7 @@ public class PrefabEditorLoader : MonoBehaviour
                 prefabRegistry.prefabNames.Add(loadedPrefabNames[i]);
                 prefabRegistry.prefabs.Add(loadedPrefabs[i]);
                 prefabRegistry.locations.Add(loadedPrefabLocations[i]);
+                prefabRegistry.displayNames.Add(char.ToUpper(loadedPrefabNames[i][0]) + loadedPrefabNames[i].Substring(1));
             }
 
             EditorUtility.SetDirty(prefabRegistry);

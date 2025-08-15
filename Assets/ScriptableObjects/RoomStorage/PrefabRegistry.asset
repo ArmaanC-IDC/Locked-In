@@ -60,3 +60,19 @@ MonoBehaviour:
   - structure
   - structure
   - structure
+  displayNames:
+  - Bookshelf
+  - Chair
+  - Desk
+  - Drawers
+  - Table
+  - Key
+  - Note
+  - Candle
+  - Torch
+  - Ceiling Tile
+  - Door
+  - Floor Tile
+  - Door with Key
+  - Door with Keypad
+  - Wall
