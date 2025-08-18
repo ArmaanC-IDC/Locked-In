@@ -7,10 +7,11 @@ using System;
 [ExecuteInEditMode]
 public class RoomLoader : MonoBehaviour
 {
-    public Room room;
-    public PrefabRegistry prefabRegistry;
+    [SerializeField] private Room room;
+    [SerializeField] private PrefabRegistry prefabRegistry;
+    [SerializeField] private bool inEditor = false; //true if in-game editor
 
-    public bool generate = false;
+    [SerializeField] bool generate = false;
 
     private int unitSize = 2;
     private List<Vector3> wallGapsPositions = new List<Vector3>();
@@ -41,8 +42,11 @@ public class RoomLoader : MonoBehaviour
         return prefabRegistry.prefabs[index];
     }
 
-    void GenerateRoom()
+    public void GenerateRoom()
     {
+        wallGapsPositions.Clear();
+        wallGapsRotations.Clear();
+
         #region clear children
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
@@ -53,16 +57,20 @@ public class RoomLoader : MonoBehaviour
         #region create floor
         GameObject floorParent = new GameObject("Floor");
         floorParent.transform.SetParent(transform);
-        for (int x = 0; x<room.width; x++)
+        for (int x = 0; x<room.height; x++)
         {
-            for (int z = 0; z<room.height; z++)
+            for (int z = 0; z<room.width; z++)
             {
-                Instantiate(
+                GameObject go = Instantiate(
                     GetPrefab("floortile"), 
                     new Vector3(x*unitSize, 0, z*unitSize - 0.4f), 
-                    Quaternion.Euler(90, 0, 0), 
+                    Quaternion.Euler(0, 0, 0), 
                     floorParent.transform
                 );
+                if (inEditor)
+                {
+                    go.AddComponent<Placeable>();
+                }
             }
         }
         #endregion
@@ -70,16 +78,21 @@ public class RoomLoader : MonoBehaviour
         #region create ceiling
         GameObject ceilingParent = new GameObject("Ceiling");
         ceilingParent.transform.SetParent(transform);
-        for (int x = 0; x<room.width; x++)
+        for (int x = 0; x<room.height; x++)
         {
-            for (int z = 0; z<room.height; z++)
+            for (int z = 0; z<room.width; z++)
             {
-                Instantiate(
+                GameObject go = Instantiate(
                     GetPrefab("ceilingtile"), 
-                    new Vector3(x*unitSize, 6, z*unitSize), 
-                    Quaternion.Euler(90, 0, 0), 
+                    new Vector3(x*unitSize, 0, z*unitSize), 
+                    Quaternion.Euler(0, 0, 0), 
                     ceilingParent.transform
                 );
+
+                if (inEditor)
+                {
+                    go.AddComponent<Placeable>();
+                }
             }
         }
         #endregion
@@ -87,7 +100,7 @@ public class RoomLoader : MonoBehaviour
         #region create objects
         GameObject objectParent = new GameObject("Objects");
         objectParent.transform.SetParent(transform);
-        Debug.Log(room.objectData.Count);
+
         foreach (ObjectData obj in room.objectData)
         {
             if (obj.type==ObjectType.wall) //destroy the wall where a door is
@@ -103,6 +116,14 @@ public class RoomLoader : MonoBehaviour
                 objectParent.transform
             );
 
+            if (inEditor)
+            {
+                Interactable interactable = inSceneObj.GetComponent<Interactable>();
+                if (interactable!=null)
+                    interactable.enabled = false;
+                inSceneObj.AddComponent<Placeable>();
+            }
+
             for (int i = 0; i < obj.paramNames.Count; i++)
             {
                 SetParam(inSceneObj, obj.paramNames[i], obj.paramValues[i]);
@@ -116,38 +137,38 @@ public class RoomLoader : MonoBehaviour
         //facing pos x
         CreateWallLine(
             new Vector3(0, 0, 0),
-            room.height,
-            new Vector3(0, 0, unitSize),
-            Quaternion.Euler(0, 0, 0),
+            room.width,
+            new Vector3(0, 0, 1) * unitSize,
+            Quaternion.Euler(0, 90, 0),
             wallsParent.transform
         );
 
         //facing neg x
         CreateWallLine(
-            new Vector3(8, 0, 0),
-            room.height,
-            new Vector3(0, 0, unitSize),
-            Quaternion.Euler(0, 180, 0),
+            new Vector3((room.height-1)*unitSize, 0, 0),
+            room.width,
+            new Vector3(0, 0, 1) * unitSize,
+            Quaternion.Euler(0, -90, 0),
             wallsParent.transform
         );
 
         //facing pos z
         CreateWallLine(
             new Vector3(0, 0, 0),
-            room.width,
-            new Vector3(unitSize, 0, 0),
-            Quaternion.Euler(0, -90, 0),
+            room.height,
+            new Vector3(1, 0, 0) * unitSize,
+            Quaternion.Euler(0, 0, 0),
             wallsParent.transform
         );
 
         //facing neg z
         CreateWallLine(
-            new Vector3(0, 0, 8),
-            room.width,
-            new Vector3(unitSize, 0, 0),
-            Quaternion.Euler(0, 90, 0),
+            new Vector3(0, 0, (room.width-1)*unitSize),
+            room.height,
+            new Vector3(1, 0, 0) * unitSize,
+            Quaternion.Euler(0, 180, 0),
             wallsParent.transform
-        );
+        );        
         #endregion
     }
 
@@ -159,7 +180,13 @@ public class RoomLoader : MonoBehaviour
             int posI = wallGapsPositions.IndexOf(position);
             int rotI = wallGapsRotations.IndexOf(rotation);
             if (posI!=rotI | posI<0)
-                Instantiate(GetPrefab("wall"), position, rotation, parent);
+            {
+                GameObject go = Instantiate(GetPrefab("wall"), position, rotation, parent);
+                if (inEditor)
+                {
+                    go.AddComponent<Placeable>();
+                }
+            }
         }
     }
   
@@ -213,6 +240,6 @@ public class RoomLoader : MonoBehaviour
             return ;
         }
         
-        Debug.Log($"Error setting property or field {propertyName} in type {componentName}");
+        Debug.LogError($"Error setting property or field {propertyName} in type {componentName}");
     }
 }

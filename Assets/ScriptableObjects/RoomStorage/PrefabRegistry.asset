@@ -70,9 +70,10 @@ MonoBehaviour:
   - Note
   - Candle
   - Torch
-  - Ceiling Tile
+  - Ceilingtile
   - Door
-  - Floor Tile
-  - Door with Key
-  - Door with Keypad
+  - Floortile
+  - Keydoor
+  - Numberlockdoor
   - Wall
+  placementTypes: 000000000000000000000000000000000000000001000000010000000100000000000000000000000200000000000000020000000200000002000000

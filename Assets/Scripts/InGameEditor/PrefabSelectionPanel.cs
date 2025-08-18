@@ -123,7 +123,6 @@ public class PrefabSelectionPanel : MonoBehaviour
     void SelectHeading(int num)
     {
         selectedPrefab = -1;
-        Debug.Log(num + " : " + headings.Count);
         selectedHeading = num;
 
         PopulateHeadings();
