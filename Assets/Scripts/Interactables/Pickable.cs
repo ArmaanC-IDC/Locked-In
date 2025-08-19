@@ -14,6 +14,8 @@ public class Pickable : Interactable
         
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>();
 
+        item = GetComponent<Item>();
+
         if (inventory==null)
         {
             Debug.LogError("\"Player\" not found at top level, or player has no inventory manager attached");

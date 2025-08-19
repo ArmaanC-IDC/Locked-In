@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PrototypeRoom
   m_EditorClassIdentifier: 
   width: 6
-  height: 3
+  height: 6
   objectData:
-  - {fileID: 11400000, guid: b7474883442c4d141921673b57247a8b, type: 2}
+  - {fileID: 11400000, guid: a5bb953b0a529e048b57dde227924cea, type: 2}
   - {fileID: 11400000, guid: 4c11c06e841c2354a88dd2550d9d3131, type: 2}

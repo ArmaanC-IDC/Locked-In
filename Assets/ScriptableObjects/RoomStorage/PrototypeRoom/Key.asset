@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3597ffecd12f454d86e78ff3b45694a, type: 3}
-  m_Name: Door
+  m_Name: Key
   m_EditorClassIdentifier: 
   type: 0
-  prefabName: keydoor
-  position: {x: 0, y: 0, z: 0}
+  prefabName: key
+  position: {x: 0, y: 0.1, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   paramNames:
-  - KeyLock/code
+  - Item/code
   paramValues:
   - 1

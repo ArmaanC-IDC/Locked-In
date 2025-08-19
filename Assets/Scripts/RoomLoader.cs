@@ -100,6 +100,8 @@ public class RoomLoader : MonoBehaviour
         #region create objects
         GameObject objectParent = new GameObject("Objects");
         objectParent.transform.SetParent(transform);
+        wallGapsPositions = new List<Vector3>();
+        wallGapsRotations = new List<Quaternion>();
 
         foreach (ObjectData obj in room.objectData)
         {

@@ -16,6 +16,7 @@ public class NumberLockUI : MonoBehaviour
     }
 
     public void OnButtonPress(int number){
+        Debug.Log(number);
         currentEnteredCode += number.ToString();
         currentCodeText.text = currentEnteredCode;
     }

@@ -12,6 +12,7 @@ public class ObjectPlacement : MonoBehaviour
     [SerializeField] private Room currentRoom;
     [SerializeField] private RoomLoader roomLoader;
     [SerializeField] private InputAction rotateInputAction;
+    [SerializeField] private InspectorPanel inspectorPanel;
 
     [Header("Values")]
     [SerializeField] private float surfaceSnappingInverval = 0.1f;
@@ -52,7 +53,21 @@ public class ObjectPlacement : MonoBehaviour
 
         if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
         {
-            PlaceObject();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                if (hit.transform.gameObject.GetComponentInParent<Placeable>())
+                {
+                    inspectorPanel.currentObj = hit.transform.gameObject.GetComponentInParent<Placeable>().gameObject;
+                }else
+                {
+                    Debug.Log("no placeable");
+                }
+            }else
+            {
+                PlaceObject();
+            }
         }
     }
 
